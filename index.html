@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dujiangyan | Harmonious Coexistence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ═══════════════ CINEMATIC INTRO ═══════════════ -->
+  <div class="intro-overlay" id="introOverlay">
+    <div class="intro-slideshow">
+      <div class="intro-slide is-1"><img src="intro-1.jpg" alt=""></div>
+      <div class="intro-slide is-2"><img src="intro-2.jpg" alt=""></div>
+      <div class="intro-slide is-3"><img src="intro-3.jpg" alt=""></div>
+      <div class="intro-slide is-4"><img src="intro-4.jpg" alt=""></div>
+    </div>
+    <div class="intro-text-layer">
+      <p class="intro-location">Sichuan, China · 256 BCE — Present</p>
+      <h1 class="intro-title">Dujiangyan<br>Irrigation System</h1>
+      <p class="intro-tagline">2,200 years of harmony between water, earth, life, and civilization.</p>
+      <div class="intro-line"></div>
+    </div>
+    <button class="intro-skip" id="introSkip" aria-label="Skip intro">Skip ›</button>
+  </div>
+
+  <canvas id="particles" aria-hidden="true"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
+
+  <main class="deck" id="deck">
+
+    <!-- ═══════════════ SLIDE 0 — COVER ═══════════════ -->
+    <section class="slide active" data-index="0" id="slide-cover">
+      <div class="slide-inner cover-layout">
+        <div class="cover-text">
+          <p class="verse">"道法自然" — The Dao follows Nature.</p>
+          <h1>Natural Acceptance &amp; Harmonious Coexistence</h1>
+          <h2>A Technical Analysis of the Dujiangyan Irrigation System</h2>
+          <p class="subtitle">Validating the Coexistence of Material, Plant, Animal, and Human Orders<br>through 2,200 Years of Ancient Hydro-Engineering</p>
+          <div class="cover-meta">
+            <span>Presenter: arka2024</span>
+            <span>March 12, 2026</span>
+          </div>
+        </div>
+        <div class="cover-visual">
+          <svg class="cover-rings" viewBox="0 0 400 400" aria-hidden="true">
+            <circle class="ring r1" cx="200" cy="200" r="180" />
+            <circle class="ring r2" cx="200" cy="200" r="140" />
+            <circle class="ring r3" cx="200" cy="200" r="100" />
+            <circle class="ring r4" cx="200" cy="200" r="60" />
+            <text x="200" y="40" class="ring-label rl1">Material 石</text>
+            <text x="370" y="210" class="ring-label rl2">Plant 木</text>
+            <text x="200" y="390" class="ring-label rl3">Animal 鱼</text>
+            <text x="30" y="210" class="ring-label rl4">Human 人</text>
+            <g class="dao-symbol">
+              <circle cx="200" cy="200" r="26" fill="none" stroke="rgba(255,191,71,0.6)" stroke-width="1.5"/>
+              <text x="200" y="208" text-anchor="middle" fill="rgba(255,191,71,0.9)" font-size="22" font-family="Noto Serif SC" font-weight="700">道</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ SLIDE 1 — FOUR ORDERS ═══════════════ -->
+    <section class="slide" data-index="1" id="slide-orders">
+      <div class="slide-inner two-col">
+        <div class="col-text">
+          <p class="slide-num">01</p>
+          <p class="verse">"天地与我并生，万物与我为一"<br><em>"Heaven, Earth, and I were born together; all things and I are one." — Zhuangzi</em></p>
+          <h2>Deconstructing Nature: The Four Orders of Coexistence</h2>
+          <p>The inherent design of nature provides a template for harmony. To prove mutually fulfilling coexistence, we must analyze the four distinct yet interdependent orders defined in universal human values studies.</p>
+          <div class="order-list">
+            <div class="order-item oi-1" data-order="material">
+              <span class="order-icon mat-icon"></span>
+              <div>
+                <h3>1 · Material Order <span class="sanskrit">(Padartha / 石)</span></h3>
+                <p>The inanimate foundation — soil, water, rock, minerals. Characterized by stability, chemical composition, and decomposition. It carries the memory of geological aeons and provides the stage upon which all life performs.</p>
+              </div>
+            </div>
+            <div class="order-item oi-2" data-order="plant">
+              <span class="order-icon plant-icon"></span>
+              <div>
+                <h3>2 · Plant Order <span class="sanskrit">(Ood-bhij / 木)</span></h3>
+                <p>The biosystem — forests, crops, mosses. The primary energy converter transforming sunlight into biomass and oxygen. It breathes so the world can live, and anchors the soil so the Material Order holds firm.</p>
+              </div>
+            </div>
+            <div class="order-item oi-3" data-order="animal">
+              <span class="order-icon animal-icon"></span>
+              <div>
+                <h3>3 · Animal Order <span class="sanskrit">(Jangam / 鱼)</span></h3>
+                <p>Mobile, conscious life — fish, birds, mammals. Consumers and pollinators in the nutrient cycle. They possess instinctual awareness and physical purposefulness, serving as the living current between orders.</p>
+              </div>
+            </div>
+            <div class="order-item oi-4" data-order="human">
+              <span class="order-icon human-icon"></span>
+              <div>
+                <h3>4 · Human Order <span class="sanskrit">(Manushya / 人)</span></h3>
+                <p>The realizing order. Unique capacity for rational thought, value-based choice, and the <em>natural acceptance</em> to live in mutual fulfillment. The only order that can consciously choose harmony — or destruction.</p>
+              </div>
+            </div>
+          </div>
+          <p class="takeaway">Core argument: human fulfillment is not found in exploitation, but in ensuring our activities are <em>mutually fulfilling</em> to the other three orders.</p>
+        </div>
+        <div class="col-visual">
+          <svg class="orders-mandala" viewBox="0 0 400 400" aria-hidden="true">
+            <defs>
+              <radialGradient id="glow1"><stop offset="0%" stop-color="rgba(127,138,147,0.35)"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+              <radialGradient id="glow2"><stop offset="0%" stop-color="rgba(79,138,63,0.35)"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+              <radialGradient id="glow3"><stop offset="0%" stop-color="rgba(39,142,165,0.35)"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+              <radialGradient id="glow4"><stop offset="0%" stop-color="rgba(229,95,43,0.35)"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+            </defs>
+            <line class="connector" x1="200" y1="80" x2="320" y2="200"/>
+            <line class="connector" x1="320" y1="200" x2="200" y2="320"/>
+            <line class="connector" x1="200" y1="320" x2="80" y2="200"/>
+            <line class="connector" x1="80" y1="200" x2="200" y2="80"/>
+            <line class="connector" x1="200" y1="80" x2="200" y2="320"/>
+            <line class="connector" x1="320" y1="200" x2="80" y2="200"/>
+            <circle class="node n1" cx="200" cy="80" r="38" fill="url(#glow1)"/>
+            <circle class="node n2" cx="320" cy="200" r="38" fill="url(#glow2)"/>
+            <circle class="node n3" cx="200" cy="320" r="38" fill="url(#glow3)"/>
+            <circle class="node n4" cx="80" cy="200" r="38" fill="url(#glow4)"/>
+            <text x="200" y="84" class="node-label">石 Material</text>
+            <text x="320" y="204" class="node-label">木 Plant</text>
+            <text x="200" y="324" class="node-label">鱼 Animal</text>
+            <text x="80" y="204" class="node-label">人 Human</text>
+            <circle class="pulse p1" cx="200" cy="80" r="38"/>
+            <circle class="pulse p2" cx="320" cy="200" r="38"/>
+            <circle class="pulse p3" cx="200" cy="320" r="38"/>
+            <circle class="pulse p4" cx="80" cy="200" r="38"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ SLIDE 2 — CHALLENGE ═══════════════ -->
+    <section class="slide" data-index="2" id="slide-challenge">
+      <div class="slide-inner two-col">
+        <div class="col-text">
+          <p class="slide-num">02</p>
+          <p class="verse">"水善利万物而不争"<br><em>"Water benefits all things and does not compete." — Laozi, Dao De Jing, Ch. 8</em></p>
+          <h2>The Challenge: Taming the Wild Minjiang River</h2>
+          <p>In 256 BCE, during the Warring States period, the Minjiang River descended violently from the Tibetan Plateau. As it struck the flat Chengdu Plain, the gradient lessened and the river became braided, shifting course with each flood season.</p>
+          <div class="detail-grid">
+            <div class="detail-card">
+              <h4>Hydrological Threat</h4>
+              <p>Melting Himalayan snow combined with monsoon rains produced massive sediment loads and flash floods every spring — destroying settlements, drowning crops, and burying fertile soil under metres of debris.</p>
+            </div>
+            <div class="detail-card">
+              <h4>The Orders Under Siege</h4>
+              <p>The violent <strong>Material Order</strong> (water &amp; debris) annihilated the <strong>Plant Order</strong> (crops) and threatened the <strong>Human Order</strong> (villages). The <strong>Animal Order</strong> was displaced by chaotic, silted flows that suffocated aquatic life.</p>
+            </div>
+            <div class="detail-card span-2">
+              <h4>The Paradigm Shift of Li Bing</h4>
+              <p>Governor Li Bing rejected the conventional "levee war" — fighting water with ever-higher walls. He sought a hydraulic intervention that would use the river's <em>own energy</em> to regulate itself. Not a dam, but a <em>conversation</em> with moving water. This innovation has endured for 2,278 years — the longest-running hydraulic system on Earth.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-visual">
+          <div class="postcard-stack" aria-hidden="true">
+            <div class="postcard pc-back pc-float-1">
+              <img src="img-flood-2.jpg" alt="Minjiang River flood context" loading="lazy">
+              <div class="pc-shine"></div>
+            </div>
+            <div class="postcard pc-front pc-float-2">
+              <img src="img-flood-1.jpg" alt="Dujiangyan aerial view" loading="lazy">
+              <div class="pc-shine"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ SLIDE 3 — TECHNICAL MARVELS ═══════════════ -->
+    <section class="slide" data-index="3" id="slide-tech">
+      <div class="slide-inner two-col">
+        <div class="col-text">
+          <p class="slide-num">03</p>
+          <p class="verse">"深淘滩，低作堰"<br><em>"Dig the channel deep, keep the dykes low." — Li Bing's Sacred Rule, 256 BCE</em></p>
+          <h2>Hydraulic Engineering: Three Structures of Genius</h2>
+
+          <div class="tech-block">
+            <h3>The Fish Mouth <span class="ch">(鱼嘴 Yuzui)</span></h3>
+            <p>An 80-metre, teardrop-shaped levee constructed from giant bamboo cages filled with stones — flexible and seismically resilient. Positioned at a precise 30° angle, it splits the Minjiang into two channels:</p>
+            <ul>
+              <li><strong>Inner Channel (West):</strong> carries ~60% of dry-season water for irrigation.</li>
+              <li><strong>Outer Channel (East):</strong> primary flood and sediment discharge route.</li>
+            </ul>
+            <p>Its curved geometry induces <em>helicoidal (spiral) flow</em>, using centrifugal force to push heavy sediment into the outer channel — the Material Order self-cleaning without human intervention.</p>
+          </div>
+
+          <div class="tech-block">
+            <h3>The Flying Sand Weir <span class="ch">(飞沙堰 Feishayan)</span></h3>
+            <p>A 200-metre low weir that creates a powerful backflow vortex during floods. Like a natural centrifuge, it ejects up to 80% of remaining sediment back to the main river — delivering only clean water to the fertile plains and protecting the Plant Order's soil from salinization and waterlogging.</p>
+          </div>
+
+          <div class="tech-block">
+            <h3>The Bottle-Neck Channel <span class="ch">(宝瓶口 Baopingkou)</span></h3>
+            <p>A passage carved through solid rock — 20 m wide, 40 m deep, 80 m long. It acts as an automatic flow valve via the <em>Venturi effect</em>, predating Bernoulli by two millennia. Excess water backs up and spills over the Weir. Critically, this is an <strong>open system</strong>: no wall blocks fish migration, preserving the Animal Order's biodiversity corridors and dissolved oxygen levels.</p>
+          </div>
+        </div>
+        <div class="col-visual">
+          <svg class="split-svg" viewBox="0 0 500 500" aria-hidden="true">
+            <defs>
+              <linearGradient id="innerW" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1e6e8e"/><stop offset="100%" stop-color="#145060"/></linearGradient>
+              <linearGradient id="outerW" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2a6050"/><stop offset="100%" stop-color="#1a4030"/></linearGradient>
+            </defs>
+            <path d="M220,0 L280,0 L280,175 L220,175 Z" fill="url(#innerW)" class="flow-anim"/>
+            <ellipse cx="250" cy="198" rx="42" ry="24" fill="#6a5a3a" stroke="#a09060" stroke-width="1.5" class="fish-mouth-shape"/>
+            <text x="250" y="203" text-anchor="middle" fill="#d4c88a" font-size="11" font-weight="600" font-family="Noto Serif SC">鱼嘴</text>
+            <path d="M195,215 Q155,290 135,380 L175,380 Q185,300 215,225 Z" fill="url(#innerW)" class="flow-anim"/>
+            <path d="M305,215 Q345,290 365,380 L325,380 Q315,300 285,225 Z" fill="url(#outerW)" class="flow-anim"/>
+            <g class="sediment-flow">
+              <circle cx="325" cy="265" r="3" fill="#b08a50" opacity="0.7" class="sed"/>
+              <circle cx="335" cy="300" r="2.5" fill="#b08a50" opacity="0.6" class="sed"/>
+              <circle cx="340" cy="335" r="3.5" fill="#b08a50" opacity="0.5" class="sed"/>
+              <circle cx="345" cy="365" r="2" fill="#b08a50" opacity="0.4" class="sed"/>
+            </g>
+            <rect x="165" y="360" width="55" height="8" rx="4" fill="#5a5a3a"/>
+            <text x="192" y="385" text-anchor="middle" fill="#a09a6a" font-size="10" font-family="Noto Serif SC">飞沙堰</text>
+            <rect x="138" y="400" width="32" height="55" rx="3" fill="#2a3a3a" stroke="#4a5a5a" stroke-width="1"/>
+            <text x="154" y="470" text-anchor="middle" fill="#7a9a7a" font-size="9" font-family="Noto Serif SC">宝瓶口</text>
+            <text x="135" y="260" fill="#5aaac0" font-size="10">Inner 灌溉</text>
+            <text x="320" y="260" fill="#5a9a6a" font-size="10">Outer 排洪</text>
+            <text x="250" y="28" text-anchor="middle" fill="#4a7a8a" font-size="11">岷江 Minjiang ↓</text>
+            <g class="flow-arrows">
+              <polygon points="158,330 153,320 163,320" fill="#4a9ab0" class="fa"/>
+              <polygon points="345,330 340,320 350,320" fill="#5a9a6a" class="fa"/>
+              <polygon points="153,440 148,430 158,430" fill="#4a8a7a" class="fa"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ SLIDE 4 — PHILOSOPHY ═══════════════ -->
+    <section class="slide" data-index="4" id="slide-philosophy">
+      <div class="slide-inner two-col">
+        <div class="col-text">
+          <p class="slide-num">04</p>
+          <p class="verse">"上善若水。水善利万物而不争，处众人之所恶，故几于道。"<br><em>"The highest good is like water. Water benefits all things and does not compete;<br>it dwells in places that all disdain — and so is close to the Dao." — Laozi, Ch. 8</em></p>
+          <h2>Governance Rooted in "Following Nature" (Dao)</h2>
+
+          <div class="philo-section">
+            <h3>The Philosophy of Wu Wei <span class="ch">(无为)</span></h3>
+            <p>The builders practiced <em>strategic non-intervention</em> — observing the river's flow for years before making a single cut. They followed the Taoist principle of <strong>Dao Fa Zi Ran</strong> (道法自然): the Dao models itself on what is naturally so. Technology was not imposed upon nature; it was <em>derived</em> from nature's own patterns.</p>
+          </div>
+
+          <div class="philo-section">
+            <h3>Natural Acceptance in Practice</h3>
+            <p>The engineers viewed the river not as an enemy to be conquered, but as a partner whose character must be understood. Technology was restricted by environmental ethics — the ancient maxim <strong>"Tao Controls Technology"</strong> meant that the tool must serve life, never dominate it. This is the original "natural acceptance" — an innate human recognition that fulfillment comes through service, not subjugation.</p>
+          </div>
+
+          <div class="philo-section">
+            <h3>The Annual Qinghai Ritual <span class="ch">(清害)</span></h3>
+            <p>Every winter, during the low-flow season, workers close the inner channel using temporary bamboo cofferdams and manually dredge accumulated silt. The depth is measured against ancient stone statues of Li Bing placed on the riverbed — the "deep bed" benchmark carved 2,200 years ago. This ritual represents the Human Order <em>consciously participating</em> in the material cycle, resetting the balance each year.</p>
+          </div>
+
+          <p class="takeaway">This is not passive conservation. It is <em>active, regenerative stewardship</em> — humans using nature in a way that regenerates it. The most advanced paradigm of technology.</p>
+        </div>
+        <div class="col-visual">
+          <div class="postcard-stack" aria-hidden="true">
+            <div class="postcard pc-back pc-float-1">
+              <img src="img-dao-2.jpg" alt="Ancient Dujiangyan maintenance" loading="lazy">
+              <div class="pc-shine"></div>
+            </div>
+            <div class="postcard pc-front pc-float-2">
+              <img src="img-dao-1.jpg" alt="Dao philosophy and Dujiangyan" loading="lazy">
+              <div class="pc-shine"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ SLIDE 5 — PROOF & COMPARISON ═══════════════ -->
+    <section class="slide" data-index="5" id="slide-proof">
+      <div class="slide-inner two-col">
+        <div class="col-text">
+          <p class="slide-num">05</p>
+          <p class="verse">"人法地，地法天，天法道，道法自然。"<br><em>"Humanity follows the Earth, Earth follows Heaven, Heaven follows the Dao,<br>and the Dao follows what is naturally so." — Laozi, Ch. 25</em></p>
+          <h2>2,200 Years of Synergy: Proof &amp; Contrast</h2>
+
+          <div class="proof-grid">
+            <div class="proof-card pc1">
+              <h4>Material Order — Validated</h4>
+              <p>The river's sediment transport regime remains active and balanced. Unlike modern dams that trap silt and starve downstream deltas, the Minjiang's natural mass balance is preserved through self-flushing mechanics.</p>
+            </div>
+            <div class="proof-card pc2">
+              <h4>Plant Order — Validated</h4>
+              <p>The Chengdu Plain became <strong>天府之国</strong> (Tianfu Zhi Guo) — "The Land of Abundance." Clean irrigation water prevents soil salinization. Upstream watershed forests were preserved because the design eliminated the need for destructive engineering.</p>
+            </div>
+            <div class="proof-card pc3">
+              <h4>Animal Order — Validated</h4>
+              <p>Unlike the 60% collapse in freshwater species near conventional dams (WWF data), the Minjiang's open-channel system maintains aquatic migration corridors, dissolved oxygen levels, and genetic exchange across the full river basin.</p>
+            </div>
+            <div class="proof-card pc4">
+              <h4>Human Order — Validated</h4>
+              <p>The society prospered for over two millennia, supporting 5+ million people. The Human Order fulfilled its role not as master, but as the <em>realizing</em> steward maintaining the system's health for all four orders.</p>
+            </div>
+          </div>
+
+          <div class="comparison-table">
+            <h3>Paradigm Contrast: Participation vs. Domination</h3>
+            <div class="comp-row head"><span>Criterion</span><span>Modern Concrete Dams</span><span>Dujiangyan</span></div>
+            <div class="comp-row"><span>Approach</span><span>Stop &amp; confine water</span><span>Guide &amp; negotiate with flow</span></div>
+            <div class="comp-row"><span>Sediment</span><span>Trapped → delta erosion</span><span>Self-flushing → balanced</span></div>
+            <div class="comp-row"><span>Ecology</span><span>Fragmented habitats</span><span>Open corridors preserved</span></div>
+            <div class="comp-row"><span>Lifespan</span><span>50–100 years (silts up)</span><span>2,278+ years (maintained)</span></div>
+            <div class="comp-row"><span>Philosophy</span><span>Domination over nature</span><span>Participation with nature</span></div>
+          </div>
+        </div>
+        <div class="col-visual">
+          <svg class="balance-svg" viewBox="0 0 400 500" aria-hidden="true">
+            <rect x="194" y="185" width="12" height="190" rx="6" fill="#3a4a4a"/>
+            <circle cx="200" cy="178" r="10" fill="#5a6a6a"/>
+            <line x1="65" y1="205" x2="335" y2="205" stroke="#5a6a6a" stroke-width="3.5" class="balance-beam"/>
+            <g class="pan-left">
+              <line x1="85" y1="205" x2="85" y2="268" stroke="#3a5a4a" stroke-width="1.5"/>
+              <ellipse cx="85" cy="275" rx="52" ry="13" fill="none" stroke="#4a8a5a" stroke-width="1.5"/>
+              <text x="85" y="305" text-anchor="middle" fill="#6aba7a" font-size="11">Nature 自然</text>
+            </g>
+            <g class="pan-right">
+              <line x1="315" y1="205" x2="315" y2="268" stroke="#5a4a3a" stroke-width="1.5"/>
+              <ellipse cx="315" cy="275" rx="52" ry="13" fill="none" stroke="#ba8a5a" stroke-width="1.5"/>
+              <text x="315" y="305" text-anchor="middle" fill="#daba7a" font-size="11">Human 人</text>
+            </g>
+            <circle cx="200" cy="162" r="28" class="harmony-pulse"/>
+            <text x="200" y="168" text-anchor="middle" fill="rgba(255,191,71,0.85)" font-size="16" font-family="Noto Serif SC" font-weight="700">和</text>
+            <path d="M85,268 Q200,240 315,268" class="energy-arc ea1" fill="none"/>
+            <path d="M315,268 Q200,296 85,268" class="energy-arc ea2" fill="none"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ SLIDE 6 — CONCLUSION ═══════════════ -->
+    <section class="slide" data-index="6" id="slide-conclusion">
+      <div class="slide-inner single-col">
+        <p class="slide-num">06</p>
+        <p class="verse">"天人合一"<br><em>"Heaven and Humanity are One." — the oldest axiom of Chinese cosmology</em></p>
+        <h2>Dujiangyan: A Living Laboratory of Natural Acceptance</h2>
+
+        <div class="conclusion-grid">
+          <div class="conc-card cc1">
+            <h4>Thesis 1 — Validated</h4>
+            <p><em>"There is natural acceptance in human beings for mutually fulfilling coexistence."</em><br>The engineers and society of Dujiangyan demonstrated this acceptance across 90+ generations. They chose synergy over dominance — proving it is inherent in human potential to be stewards, not exploiters.</p>
+          </div>
+          <div class="conc-card cc2">
+            <h4>Thesis 2 — Validated</h4>
+            <p><em>"There is provision in nature for harmonious coexistence of all four orders."</em><br>The system works because it taps into nature's own provisions — the river's kinetic energy for sediment flushing, the vortex for cleaning, the mountain passage for flow control. It joined nature rather than fighting it.</p>
+          </div>
+        </div>
+
+        <blockquote class="final-quote">
+          "The most advanced technology is not that which conquers nature, but that which <em>listens</em> to it.<br>The Human Order's highest function is to be the steward of this pre-existing harmony."
+        </blockquote>
+
+        <div class="ref-section">
+          <h3>References &amp; Further Reading</h3>
+          <ul>
+            <li>Huang, B., Hu, X., Tang, L., &amp; Lu, Q. (2024). Governing human-nature harmony in protected area communities. <em>Bulletin of Chinese Academy of Sciences.</em></li>
+            <li>e-Adhyayan. Module on Concord in Nature: Understanding the Four Orders.</li>
+            <li>Fu, H. (2020). The Innovative Road to Urban Nature Conservation. <em>Landscape Architecture Frontiers.</em></li>
+            <li>Springer. (2019). Synergetic Evolution of Social and Natural Systems: Ecological Wisdom in "The Land of Abundance."</li>
+            <li>Swiss Agency for Development and Cooperation. (2024). Nature Conservation and Local Development Report.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ SLIDE 7 — THANK YOU ═══════════════ -->
+    <section class="slide" data-index="7" id="slide-thanks">
+      <div class="slide-inner center-layout">
+        <p class="verse large-verse">"道法自然"</p>
+        <h2 class="thanks-title">Thank You</h2>
+        <p class="thanks-sub">Dujiangyan has stood for over two millennia — living proof that when humans accept their role <em>within</em> nature rather than <em>above</em> it, harmony is not an ideal but an engineering reality.</p>
+        <div class="cover-meta">
+          <span>arka2024</span>
+          <span>March 12, 2026</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="controls">
+    <button id="prevBtn" aria-label="Previous slide">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+      <span>Prev</span>
+    </button>
+    <span id="counter">1 / 8</span>
+    <button id="nextBtn" aria-label="Next slide">
+      <span>Next</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+  </footer>
+
+  <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
