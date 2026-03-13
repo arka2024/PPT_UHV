@@ -29,6 +29,12 @@
   </div>
 
   <canvas id="particles" aria-hidden="true"></canvas>
+  <div class="bg-cosmos" aria-hidden="true">
+    <span class="bg-orb orb-1"></span>
+    <span class="bg-orb orb-2"></span>
+    <span class="bg-orb orb-3"></span>
+  </div>
+  <div class="bg-contours" aria-hidden="true"></div>
   <div class="vignette" aria-hidden="true"></div>
 
   <main class="deck" id="deck">
@@ -37,12 +43,12 @@
     <section class="slide active" data-index="0" id="slide-cover">
       <div class="slide-inner cover-layout">
         <div class="cover-text">
-          <p class="verse">"道法自然" — The Dao follows Nature.</p>
+          <p class="verse">"道法自然" — The Dao follows Nature <span class="sanskrit">(Prakriti)</span>.</p>
           <h1>Natural Acceptance &amp; Harmonious Coexistence</h1>
           <h2>A Technical Analysis of the Dujiangyan Irrigation System</h2>
-          <p class="subtitle">Validating the Coexistence of Material, Plant, Animal, and Human Orders<br>through 2,200 Years of Ancient Hydro-Engineering</p>
+          <p class="subtitle">Validating the Coexistence (<span class="sanskrit">Sah-Astitva</span>) of Material, Plant, Animal, and Human Orders<br>through 2,200 Years of Ancient Hydro-Engineering</p>
           <div class="cover-meta">
-            <span>Presenter: arka2024</span>
+            <span class="presenter-list">1. Arkabrata Roy 2305284<br>2. Sourish Dey 23051223<br>3. Adipta Khan 23051643<br>4. Sougata Roy 2305740<br>5. Sounak Hazra 23051546<br>6. Koustuv Gupta 2305543</span>
             <span>March 12, 2026</span>
           </div>
         </div>
@@ -106,32 +112,102 @@
           <p class="takeaway">Core argument: human fulfillment is not found in exploitation, but in ensuring our activities are <em>mutually fulfilling</em> to the other three orders.</p>
         </div>
         <div class="col-visual">
-          <svg class="orders-mandala" viewBox="0 0 400 400" aria-hidden="true">
+          <svg class="orders-orbit" viewBox="0 0 900 760" aria-hidden="true">
             <defs>
-              <radialGradient id="glow1"><stop offset="0%" stop-color="rgba(127,138,147,0.35)"/><stop offset="100%" stop-color="transparent"/></radialGradient>
-              <radialGradient id="glow2"><stop offset="0%" stop-color="rgba(79,138,63,0.35)"/><stop offset="100%" stop-color="transparent"/></radialGradient>
-              <radialGradient id="glow3"><stop offset="0%" stop-color="rgba(39,142,165,0.35)"/><stop offset="100%" stop-color="transparent"/></radialGradient>
-              <radialGradient id="glow4"><stop offset="0%" stop-color="rgba(229,95,43,0.35)"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+              <marker id="flow-arrow" markerWidth="8" markerHeight="8" refX="6.5" refY="4" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L8,4 L0,8 z" fill="rgba(79,36,22,0.86)" />
+              </marker>
+              <radialGradient id="node-plant" cx="50%" cy="38%" r="66%">
+                <stop offset="0%" stop-color="#e9f1da" />
+                <stop offset="100%" stop-color="#bfd3a9" />
+              </radialGradient>
+              <radialGradient id="node-animal" cx="50%" cy="38%" r="66%">
+                <stop offset="0%" stop-color="#dde8f0" />
+                <stop offset="100%" stop-color="#a7bccd" />
+              </radialGradient>
+              <radialGradient id="node-material" cx="50%" cy="38%" r="66%">
+                <stop offset="0%" stop-color="#d7e1eb" />
+                <stop offset="100%" stop-color="#9cb3c3" />
+              </radialGradient>
+              <radialGradient id="node-human" cx="50%" cy="38%" r="66%">
+                <stop offset="0%" stop-color="#efdec6" />
+                <stop offset="100%" stop-color="#d2a87a" />
+              </radialGradient>
             </defs>
-            <line class="connector" x1="200" y1="80" x2="320" y2="200"/>
-            <line class="connector" x1="320" y1="200" x2="200" y2="320"/>
-            <line class="connector" x1="200" y1="320" x2="80" y2="200"/>
-            <line class="connector" x1="80" y1="200" x2="200" y2="80"/>
-            <line class="connector" x1="200" y1="80" x2="200" y2="320"/>
-            <line class="connector" x1="320" y1="200" x2="80" y2="200"/>
-            <circle class="node n1" cx="200" cy="80" r="38" fill="url(#glow1)"/>
-            <circle class="node n2" cx="320" cy="200" r="38" fill="url(#glow2)"/>
-            <circle class="node n3" cx="200" cy="320" r="38" fill="url(#glow3)"/>
-            <circle class="node n4" cx="80" cy="200" r="38" fill="url(#glow4)"/>
-            <text x="200" y="84" class="node-label">石 Material</text>
-            <text x="320" y="204" class="node-label">木 Plant</text>
-            <text x="200" y="324" class="node-label">鱼 Animal</text>
-            <text x="80" y="204" class="node-label">人 Human</text>
-            <circle class="pulse p1" cx="200" cy="80" r="38"/>
-            <circle class="pulse p2" cx="320" cy="200" r="38"/>
-            <circle class="pulse p3" cx="200" cy="320" r="38"/>
-            <circle class="pulse p4" cx="80" cy="200" r="38"/>
+
+            <g class="orbit-blueprint">
+              <line x1="120" y1="380" x2="780" y2="380" />
+              <line x1="450" y1="110" x2="450" y2="650" />
+              <circle cx="450" cy="380" r="238" />
+              <circle cx="450" cy="380" r="186" />
+            </g>
+
+            <path class="flow-loop flow-plant-animal" d="M324 232 C 400 148, 564 148, 640 232" marker-end="url(#flow-arrow)" />
+            <path class="flow-loop flow-animal-human" d="M660 260 C 720 336, 720 452, 658 528" marker-end="url(#flow-arrow)" />
+            <path class="flow-loop flow-human-material" d="M630 548 C 548 628, 356 628, 274 548" marker-end="url(#flow-arrow)" />
+            <path class="flow-loop flow-material-plant" d="M244 526 C 176 446, 176 314, 244 234" marker-end="url(#flow-arrow)" />
+            <path class="flow-loop flow-material-animal" d="M296 518 C 372 390, 536 346, 602 250" marker-end="url(#flow-arrow)" />
+            <path class="flow-loop flow-plant-human" d="M300 246 C 376 378, 520 420, 598 522" marker-end="url(#flow-arrow)" />
+
+            <g class="orbit-center">
+              <circle cx="450" cy="380" r="120" class="center-disc" />
+              <text x="450" y="352" class="center-title">The</text>
+              <text x="450" y="395" class="center-title">Coexistence</text>
+              <text x="450" y="438" class="center-title">Orbit</text>
+            </g>
+
+            <g class="order-node node-plant" transform="translate(260 240)">
+              <circle r="84" class="node-outer" />
+              <circle r="66" class="node-inner" fill="url(#node-plant)" />
+              <path d="M0 26 L0 -28 M0 -8 C -18 -10 -24 -28 -14 -40 C -2 -34 2 -18 0 -8 C 20 -12 28 -30 18 -42 C 6 -36 2 -20 0 -8" class="icon-line" />
+              <path d="M-24 26 Q0 8 24 26" class="icon-line" />
+            </g>
+
+            <g class="order-node node-animal" transform="translate(640 240)">
+              <circle r="84" class="node-outer" />
+              <circle r="66" class="node-inner" fill="url(#node-animal)" />
+              <path d="M-28 6 C-8 -24, 26 -16, 28 6 C14 18, -8 18, -28 6 Z" class="icon-line" />
+              <path d="M-10 -2 C-2 -10, 10 -10, 18 -2" class="icon-line" />
+            </g>
+
+            <g class="order-node node-material" transform="translate(260 540)">
+              <circle r="84" class="node-outer" />
+              <circle r="66" class="node-inner" fill="url(#node-material)" />
+              <rect x="-24" y="-16" width="48" height="34" class="icon-shape" />
+              <line x1="-24" y1="-16" x2="0" y2="-34" class="icon-line" />
+              <line x1="24" y1="-16" x2="0" y2="-34" class="icon-line" />
+              <line x1="0" y1="-34" x2="0" y2="0" class="icon-line" />
+            </g>
+
+            <g class="order-node node-human" transform="translate(640 540)">
+              <circle r="84" class="node-outer" />
+              <circle r="66" class="node-inner" fill="url(#node-human)" />
+              <path d="M-18 0 C-26 -20, -8 -36, 12 -30 C30 -26, 34 -6, 24 8 C18 18, 6 20, -4 16 C-12 14, -16 8, -18 0 Z" class="icon-line" />
+              <line x1="-2" y1="16" x2="-2" y2="34" class="icon-line" />
+            </g>
+
+            <g class="order-label label-plant">
+              <text x="112" y="194" class="label-title">Plant Order</text>
+              <text x="112" y="223" class="label-sub">(Ood-bhij)</text>
+            </g>
+            <g class="order-label label-animal">
+              <text x="700" y="194" class="label-title">Animal Order</text>
+              <text x="700" y="223" class="label-sub">(Jangam)</text>
+            </g>
+            <g class="order-label label-material">
+              <text x="78" y="596" class="label-title">Material Order</text>
+              <text x="78" y="625" class="label-sub">(Padartha)</text>
+            </g>
+            <g class="order-label label-human">
+              <text x="702" y="596" class="label-title">Human Order</text>
+              <text x="702" y="625" class="label-sub">(Manushya)</text>
+            </g>
+
+            <text x="382" y="306" class="flow-caption">Energy Flow</text>
+            <text x="508" y="406" class="flow-caption">Nutrient Cycle</text>
+            <text x="368" y="472" class="flow-caption">Consciousness</text>
           </svg>
+          <p class="visual-subheading">Coexistence orbit: continuous exchange among Material, Plant, Animal, and Human orders.</p>
         </div>
       </div>
     </section>
@@ -165,11 +241,16 @@
               <img src="img-flood-2.jpg" alt="Minjiang River flood context" loading="lazy">
               <div class="pc-shine"></div>
             </div>
+            <div class="postcard pc-mid pc-float-3">
+              <img src="slide2-extra.jpg" alt="Historic flood and river engineering view" loading="lazy">
+              <div class="pc-shine"></div>
+            </div>
             <div class="postcard pc-front pc-float-2">
               <img src="img-flood-1.jpg" alt="Dujiangyan aerial view" loading="lazy">
               <div class="pc-shine"></div>
             </div>
           </div>
+          <p class="visual-subheading">Flood challenge gallery: the river threat that shaped Li Bing's non-dam solution.</p>
         </div>
       </div>
     </section>
@@ -183,7 +264,7 @@
           <h2>Hydraulic Engineering: Three Structures of Genius</h2>
 
           <div class="tech-block">
-            <h3>The Fish Mouth <span class="ch">(鱼嘴 Yuzui)</span></h3>
+            <h3>The Fish Mouth <span class="ch">(鱼嘴 Yuzui)</span> <span class="sanskrit">(Matsya-Mukha)</span></h3>
             <p>An 80-metre, teardrop-shaped levee constructed from giant bamboo cages filled with stones — flexible and seismically resilient. Positioned at a precise 30° angle, it splits the Minjiang into two channels:</p>
             <ul>
               <li><strong>Inner Channel (West):</strong> carries ~60% of dry-season water for irrigation.</li>
@@ -193,12 +274,12 @@
           </div>
 
           <div class="tech-block">
-            <h3>The Flying Sand Weir <span class="ch">(飞沙堰 Feishayan)</span></h3>
+            <h3>The Flying Sand Weir <span class="ch">(飞沙堰 Feishayan)</span> <span class="sanskrit">(Renu-Vahini)</span></h3>
             <p>A 200-metre low weir that creates a powerful backflow vortex during floods. Like a natural centrifuge, it ejects up to 80% of remaining sediment back to the main river — delivering only clean water to the fertile plains and protecting the Plant Order's soil from salinization and waterlogging.</p>
           </div>
 
           <div class="tech-block">
-            <h3>The Bottle-Neck Channel <span class="ch">(宝瓶口 Baopingkou)</span></h3>
+            <h3>The Bottle-Neck Channel <span class="ch">(宝瓶口 Baopingkou)</span> <span class="sanskrit">(Kumbha-Mukha)</span></h3>
             <p>A passage carved through solid rock — 20 m wide, 40 m deep, 80 m long. It acts as an automatic flow valve via the <em>Venturi effect</em>, predating Bernoulli by two millennia. Excess water backs up and spills over the Weir. Critically, this is an <strong>open system</strong>: no wall blocks fish migration, preserving the Animal Order's biodiversity corridors and dissolved oxygen levels.</p>
           </div>
         </div>
@@ -232,6 +313,7 @@
               <polygon points="153,440 148,430 158,430" fill="#4a8a7a" class="fa"/>
             </g>
           </svg>
+          <p class="visual-subheading">Hydraulic mechanism sketch: split, flush, and regulate flow through three linked structures.</p>
         </div>
       </div>
     </section>
@@ -242,7 +324,7 @@
         <div class="col-text">
           <p class="slide-num">04</p>
           <p class="verse">"上善若水。水善利万物而不争，处众人之所恶，故几于道。"<br><em>"The highest good is like water. Water benefits all things and does not compete;<br>it dwells in places that all disdain — and so is close to the Dao." — Laozi, Ch. 8</em></p>
-          <h2>Governance Rooted in "Following Nature" (Dao)</h2>
+          <h2>Governance Rooted in "Following Nature" (Dao · <span class="sanskrit">Prakriti-Dharma</span>)</h2>
 
           <div class="philo-section">
             <h3>The Philosophy of Wu Wei <span class="ch">(无为)</span></h3>
@@ -251,7 +333,7 @@
 
           <div class="philo-section">
             <h3>Natural Acceptance in Practice</h3>
-            <p>The engineers viewed the river not as an enemy to be conquered, but as a partner whose character must be understood. Technology was restricted by environmental ethics — the ancient maxim <strong>"Tao Controls Technology"</strong> meant that the tool must serve life, never dominate it. This is the original "natural acceptance" — an innate human recognition that fulfillment comes through service, not subjugation.</p>
+            <p>The engineers viewed the river not as an enemy to be conquered, but as a partner whose character must be understood. Technology was restricted by environmental ethics — the ancient maxim <strong>"Tao Controls Technology"</strong> meant that the tool must serve life, never dominate it. This is the original "natural acceptance" — an innate human recognition of <span class="sanskrit">Sah-Astitva</span>, where fulfillment comes through service, not subjugation.</p>
           </div>
 
           <div class="philo-section">
@@ -267,11 +349,16 @@
               <img src="img-dao-2.jpg" alt="Ancient Dujiangyan maintenance" loading="lazy">
               <div class="pc-shine"></div>
             </div>
+            <div class="postcard pc-mid pc-float-3">
+              <img src="slide4-extra.jpg" alt="Dujiangyan philosophy and heritage landscape" loading="lazy">
+              <div class="pc-shine"></div>
+            </div>
             <div class="postcard pc-front pc-float-2">
               <img src="img-dao-1.jpg" alt="Dao philosophy and Dujiangyan" loading="lazy">
               <div class="pc-shine"></div>
             </div>
           </div>
+          <p class="visual-subheading">Philosophy and practice gallery: Dao, stewardship, and cyclical maintenance in action.</p>
         </div>
       </div>
     </section>
@@ -333,6 +420,7 @@
             <path d="M85,268 Q200,240 315,268" class="energy-arc ea1" fill="none"/>
             <path d="M315,268 Q200,296 85,268" class="energy-arc ea2" fill="none"/>
           </svg>
+          <p class="visual-subheading">Balance metaphor: durable prosperity appears when human systems stay aligned with nature.</p>
         </div>
       </div>
     </section>
@@ -341,7 +429,7 @@
     <section class="slide" data-index="6" id="slide-conclusion">
       <div class="slide-inner single-col">
         <p class="slide-num">06</p>
-        <p class="verse">"天人合一"<br><em>"Heaven and Humanity are One." — the oldest axiom of Chinese cosmology</em></p>
+        <p class="verse">"天人合一"<br><em>"Heaven and Humanity are One." — the oldest axiom of Chinese cosmology; akin to <span class="sanskrit">Vasudhaiva Kutumbakam</span>.</em></p>
         <h2>Dujiangyan: A Living Laboratory of Natural Acceptance</h2>
 
         <div class="conclusion-grid">
@@ -378,10 +466,6 @@
         <p class="verse large-verse">"道法自然"</p>
         <h2 class="thanks-title">Thank You</h2>
         <p class="thanks-sub">Dujiangyan has stood for over two millennia — living proof that when humans accept their role <em>within</em> nature rather than <em>above</em> it, harmony is not an ideal but an engineering reality.</p>
-        <div class="cover-meta">
-          <span>arka2024</span>
-          <span>March 12, 2026</span>
-        </div>
       </div>
     </section>
 

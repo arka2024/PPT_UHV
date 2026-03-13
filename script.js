@@ -24,7 +24,7 @@
         r: Math.random() * 1.6 + 0.4,
         dx: (Math.random() - 0.5) * 0.25,
         dy: (Math.random() - 0.5) * 0.15 - 0.1,
-        o: Math.random() * 0.35 + 0.05
+        o: Math.random() * 0.28 + 0.18
       });
     }
   }
@@ -34,7 +34,7 @@
     for (const p of particles) {
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(200,168,78,${p.o})`;
+      ctx.fillStyle = `rgba(217,161,44,${p.o})`;
       ctx.fill();
 
       p.x += p.dx;
@@ -56,7 +56,7 @@
           ctx.beginPath();
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.strokeStyle = `rgba(200,168,78,${0.04 * (1 - dist / 120)})`;
+          ctx.strokeStyle = `rgba(139,26,26,${0.08 * (1 - dist / 120)})`;
           ctx.lineWidth = 0.6;
           ctx.stroke();
         }
@@ -113,16 +113,46 @@ const nextBtn = document.getElementById('nextBtn');
 const counter = document.getElementById('counter');
 const progressFill = document.getElementById('progressFill');
 let current = 0;
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function setupContentStagger() {
+  slides.forEach((slide) => {
+    const blocks = slide.querySelectorAll('.cover-text > *, .col-text > *, .single-col > *, .center-layout > *');
+    blocks.forEach((el, i) => {
+      el.style.setProperty('--stagger-index', i);
+    });
+  });
+}
+
+function triggerSlideEntry(slide) {
+  if (prefersReducedMotion) return;
+  slide.classList.remove('is-entering');
+  requestAnimationFrame(() => {
+    slide.classList.add('is-entering');
+    setTimeout(() => slide.classList.remove('is-entering'), 950);
+  });
+}
+
+function triggerProgressShine() {
+  if (prefersReducedMotion) return;
+  progressFill.classList.remove('is-animating');
+  void progressFill.offsetWidth;
+  progressFill.classList.add('is-animating');
+}
 
 function renderSlide(index) {
   // Reset scroll on the departing slide
   slides[current].scrollTop = 0;
 
+  slides.forEach((s) => s.classList.remove('is-entering'));
   slides.forEach((s, i) => s.classList.toggle('active', i === index));
   current = index;
+  const activeSlide = slides[current];
+  triggerSlideEntry(activeSlide);
 
   counter.textContent = `${current + 1} / ${slides.length}`;
   progressFill.style.width = `${((current + 1) / slides.length) * 100}%`;
+  triggerProgressShine();
 }
 
 function goNext() { if (current < slides.length - 1) renderSlide(current + 1); }
@@ -142,6 +172,45 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Home') { e.preventDefault(); renderSlide(0); }
   if (e.key === 'End')  { e.preventDefault(); renderSlide(slides.length - 1); }
 });
+
+// Subtle pointer parallax for active visual column
+(function initVisualParallax() {
+  if (prefersReducedMotion) return;
+
+  let nx = 0;
+  let ny = 0;
+
+  function updateParallax() {
+    const active = slides[current];
+    if (!active) return;
+    const visual = active.querySelector('.col-visual');
+    if (!visual) return;
+
+    const tx = nx * 12;
+    const ty = ny * 10;
+    const rx = -ny * 3;
+    const ry = nx * 4;
+    visual.style.transform = `translate3d(${tx.toFixed(1)}px, ${ty.toFixed(1)}px, 0) rotateX(${rx.toFixed(2)}deg) rotateY(${ry.toFixed(2)}deg)`;
+  }
+
+  document.addEventListener('mousemove', (e) => {
+    nx = (e.clientX / window.innerWidth - 0.5) * 2;
+    ny = (e.clientY / window.innerHeight - 0.5) * 2;
+    document.body.style.setProperty('--mx', `${(nx * 22).toFixed(2)}px`);
+    document.body.style.setProperty('--my', `${(ny * 18).toFixed(2)}px`);
+    updateParallax();
+  });
+
+  document.addEventListener('mouseleave', () => {
+    nx = 0;
+    ny = 0;
+    document.body.style.setProperty('--mx', '0px');
+    document.body.style.setProperty('--my', '0px');
+    updateParallax();
+  });
+})();
+
+setupContentStagger();
 
 // Initial render
 renderSlide(0);
